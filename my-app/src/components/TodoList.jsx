@@ -41,7 +41,6 @@ function TodoList() {
                     </div>
                 </li>
             </ul>
-            <TodoForm />
         </>
     );
 }
