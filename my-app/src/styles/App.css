@@ -1,0 +1,17 @@
+/* default */
+#root {
+  max-width: 750px;
+  margin: 0 auto;
+  padding: 2rem;
+  /* text-align: center; */
+  display: flex-row;
+  justify-content: center;
+  align-items: center;
+}
+
+.line {
+  max-width: 750px;
+  height: 3px;
+  background-color: #727070;
+  border-radius: 5px;
+}

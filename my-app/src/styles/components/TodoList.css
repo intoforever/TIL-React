@@ -1,0 +1,27 @@
+/* toggle */
+.toggle-switch {
+    &::before {
+        content: "";
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        background-image: url("/images/triangle-down.svg");
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    &:checked::before {
+        content: "";
+        background-image: url("/images/triangle-right.svg");
+    }
+}
+
+
+/* list */
+ul {
+    margin-bottom: 70px;
+}
+
+ul>li {
+    margin: 30px 0 0 0;
+}
