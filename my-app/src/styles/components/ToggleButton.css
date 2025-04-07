@@ -1,0 +1,25 @@
+/* toggle */
+.toggle-area {
+    margin-top: 70px;
+}
+
+.toggle-area:first-child {
+    margin-top: 30px;
+}
+
+.toggle-switch {
+    &::before {
+        content: "";
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        background-image: url("/images/triangle-down.svg");
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    &:checked::before {
+        content: "";
+        background-image: url("/images/triangle-right.svg");
+    }
+}

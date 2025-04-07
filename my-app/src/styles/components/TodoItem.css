@@ -2,6 +2,69 @@
 .item {
     padding: 10px 0 10px 20px;
     margin: 15px 0 0 15px;
-    border: 1px solid #646464;
     border-radius: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    cursor: pointer;
+}
+
+.item:hover {
+    box-shadow: 0 1px 6px rgba(0,0,0,0.1), 0 3px 6px rgba(0,0,0,0.2);
+}
+
+/* checkbox */
+.checkbox-area {
+    margin-right: 10px;
+}
+
+label.checkbox-item:has(input) {  /* 체크박스 만들기 */
+    box-sizing: border-box;
+    background-clip: content-box;
+    padding: 0.25em;
+    width: 1.3em;
+    height: 1.3em;
+    border: 1px solid gray;
+    border-radius: 5px;
+    cursor: pointer;
+    user-select: none; /* 드래그 금지 */
+}
+
+label.checkbox-item:has(input:checked) {  /* 체크되었을 때 */
+    border-color: rgb(231, 192, 229);
+    background-color: rgb(231, 185, 233);
+}
+
+/* content */
+.content-area {
+    margin-right: auto;
+}
+
+.completed-content {
+    text-decoration: line-through;
+}
+
+
+/* button */
+.btn-area {
+    margin-right: 30px;
+}
+
+.btn {
+    content: "";
+    width: 15px;
+    height: 15px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: none;
+    background-color: transparent;
+}
+
+.btn-area .edit-btn{
+    background-image: url("/images/edit.svg");
+    width: 20px;
+    height: 20px;
+    margin-right: 15px;
+}
+
+.btn-area .delete-btn{
+    background-image: url("/images/cancel.svg");
 }

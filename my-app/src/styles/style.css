@@ -4,12 +4,29 @@
 }
 
 /* display */
+.d-block {
+    display: block;
+}
+
 .d-none {
     display: none;
 }
 
 .d-flex {
     display: flex;
+}
+
+.d-flex-row {
+    flex-direction: row;
+}
+
+.d-flex-col {
+    flex-direction: column;
+}
+
+.d-flex-align-center {
+    justify-content: center;
+    align-items: center;
 }
 
 

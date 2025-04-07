@@ -24,6 +24,14 @@
 
 
 /* style reset */
+html  {
+  height: 100%;
+}
+
+body {
+  height: inherit;
+}
+
 ul, li {
   list-style: none;
   padding: 0;

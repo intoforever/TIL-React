@@ -15,15 +15,13 @@ import TodoFilter from 'components/TodoFilter'
 function App() {
   return (
     <>
-      <h1 className="test">TO-DO LIST</h1>
+      <h1>TO-DO LIST</h1>
       <div className="line"></div>
-      
       <div>
         <TodoList />
         <TodoForm />
         <TodoFilter />
       </div>
-      
     </>
   )
 }
