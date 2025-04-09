@@ -1,6 +1,7 @@
 /* toggle */
 .toggle-area {
     margin-top: 70px;
+    user-select: none;
 }
 
 .toggle-area:first-child {

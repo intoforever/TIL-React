@@ -3,6 +3,7 @@
     position: fixed;
 }
 
+
 /* display */
 .d-block {
     display: block;
@@ -21,9 +22,12 @@
 }
 
 .d-flex-col {
+    display: flex;
     flex-direction: column;
 }
 
+
+/* align */
 .d-flex-align-center {
     justify-content: center;
     align-items: center;
