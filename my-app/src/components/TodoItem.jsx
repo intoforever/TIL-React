@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useRecoilState } from 'recoil';
 import { todoListState } from '../recoil/atoms';
 
@@ -14,10 +14,10 @@ function TodoItem({ todo }) {
         if (isEditting) {
             return;
         }
-        let temp = todoList.map(item => 
-            item.id === todo.id ? { ...item, text: inputValue, completed: !item.completed } : item
+        let newList = todoList.map(item => 
+            item.id === todo.id ? { ...item, completed: !item.completed } : item
         );
-        setTodoList(temp);
+        setTodoList(newList);
     }
     
     function handleDelClick(e, todo) {
@@ -30,6 +30,14 @@ function TodoItem({ todo }) {
             }
         }
     }
+
+    // input 값이 달라지면 바로 todoList 업데이트
+    useEffect(() => {
+        let newList = todoList.map(item => 
+            item.id === todo.id ? { ...item, text: inputValue } : item
+        );
+        setTodoList(newList);
+    }, [inputValue]);
 
     return (
         <>

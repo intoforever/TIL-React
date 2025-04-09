@@ -1,18 +1,19 @@
-import { useState, useEffect } from 'react'
-import { useRecoilValue } from 'recoil'
-import { todoListState } from '../recoil/atoms'
+import { useEffect } from 'react'
+import { useRecoilState, useRecoilValue } from 'recoil'
+import { todoListState, activeOnState, completeOnState } from '../recoil/atoms'
 import { activeTodoListState, completedTodoListState } from '../recoil/selectors'
 
 import 'styles/components/TodoList.css'
 
 import TodoSection from 'components/TodoSection'
+import useLocalStorage from '../hook/useLocalStorage'
 
 function TodoList() {
     const todoList = useRecoilValue(todoListState);
     const activeTodos = useRecoilValue(activeTodoListState);
     const completedTodos = useRecoilValue(completedTodoListState);
-    const [activeOn, setActiveOn] = useState(true); // NOTE: Active 토글 상태 관리
-    const [completeOn, setCompleteOn] = useState(true); // NOTE: Completed 토글 상태 관리
+    const [activeOn, setActiveOn] = useRecoilState(activeOnState); // NOTE: Active 토글 상태 관리
+    const [completeOn, setCompleteOn] = useRecoilState(completeOnState); // NOTE: Completed 토글 상태 관리
 
     function handleToggleClick(type) {
         const toggleFunctions = {
@@ -27,17 +28,12 @@ function TodoList() {
         console.log("★ init data loaded ★ : " + JSON.stringify(todoList));
     }, []);
 
-
     // 리스트에 변동 있을 때마다 localStorage에 저장
-    useEffect(() => {
-        const todos = todoList || [];
-        localStorage.setItem('todoList', JSON.stringify(todos));
-        console.log("★ data updated ★ : " + JSON.stringify(todos));
-    }, [todoList]);
+    useLocalStorage(todoList);
 
     return (
         <>
-            <div>
+            <div className="list-wrap">
                 <TodoSection
                     id="active-toggle"
                     text="Active"
