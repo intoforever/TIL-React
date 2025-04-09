@@ -62,8 +62,12 @@ textarea {
 
 /* scrollbar */
 /* Chrome, Whale, Edge */
+body::-webkit-scrollbar {
+	display: none;
+}
+
 ::-webkit-scrollbar {
-	width: 10px;
+	width: 5px;
 }
 
 ::-webkit-scrollbar-thumb {

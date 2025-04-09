@@ -1,1 +1,10 @@
 /* list */
+.list-wrap {
+    height: calc(75vh - 100px);
+    overflow-y: auto;
+    scrollbar-gutter: stable;
+}
+
+.list-wrap::-webkit-scrollbar-button:start {
+    height: 40px;
+}
