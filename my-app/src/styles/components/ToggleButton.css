@@ -4,6 +4,10 @@
     user-select: none;
 }
 
+.toggle-area input, .toggle-area label {
+    cursor: pointer;
+}
+
 .toggle-area:first-child {
     margin-top: 30px;
 }
@@ -14,13 +18,5 @@
         display: inline-block;
         width: 15px;
         height: 15px;
-        background-image: url("/images/triangle-down.svg");
-        background-size: contain;
-        background-repeat: no-repeat;
-    }
-
-    &:checked::before {
-        content: "";
-        background-image: url("/images/triangle-right.svg");
     }
 }
