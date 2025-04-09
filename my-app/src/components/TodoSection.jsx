@@ -1,7 +1,7 @@
 import TodoItem from 'components/TodoItem'
 import ToggleButton from 'components/ToggleButton'
 
-function ToggleSection({ id, text, type, isOn, todos, onToggleClick, onItemClick }) {
+function ToggleSection({ id, text, type, handleToggleClick, isOn, todoList }) {
     return (
         <>
             <div>
@@ -9,15 +9,14 @@ function ToggleSection({ id, text, type, isOn, todos, onToggleClick, onItemClick
                     id={id}
                     text={text}
                     type={type}
-                    onToggleClick={onToggleClick}
+                    handleToggleClick={handleToggleClick}
                 />
                 <div style={{display: isOn ? "block" : "none"}}>
                     <ul>
-                        {todos.map(todo => (
+                        {todoList.map(todo => (
                             <TodoItem
                                 key={todo.id}
                                 todo={todo}
-                                onItemClick={onItemClick}
                             />
                         ))}
                     </ul>

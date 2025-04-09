@@ -1,6 +1,8 @@
+import { memo } from 'react'
+
 import 'styles/components/ToggleButton.css'
 
-function ToggleButton({ id, text, type, onToggleClick }) {
+function ToggleButton({ id, text, type, handleToggleClick }) {
     return (
         <>
             <div className="toggle-area">
@@ -8,7 +10,7 @@ function ToggleButton({ id, text, type, onToggleClick }) {
                     id={id}
                     className="toggle-switch"
                     type="checkbox"
-                    onClick={() => onToggleClick({type})}
+                    onClick={() => handleToggleClick(type)}
                 />
                 <label htmlFor={id} className="font-20 bold">
                     {text}
@@ -18,4 +20,4 @@ function ToggleButton({ id, text, type, onToggleClick }) {
     );
 }
 
-export default ToggleButton
+export default memo(ToggleButton)
