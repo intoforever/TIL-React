@@ -1,12 +1,10 @@
-import { useEffect } from 'react'
-import { useRecoilState, useRecoilValue } from 'recoil'
-import { todoListState, activeOnState, completeOnState } from '../recoil/atoms'
-import { activeTodoListState, completedTodoListState } from '../recoil/selectors'
-
-import 'styles/components/TodoList.css'
-
-import TodoSection from 'components/TodoSection'
-import useLocalStorage from '../hook/useLocalStorage'
+import { useEffect } from 'react';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { todoListState, activeOnState, completeOnState } from '../recoil/atoms';
+import { activeTodoListState, completedTodoListState } from '../recoil/selectors';
+import todoListStyle from 'styles/components/todo-list.module.css';
+import TodoSection from 'components/TodoSection';
+import useLocalStorage from '../hook/useLocalStorage';
 
 function TodoList() {
     const todoList = useRecoilValue(todoListState);
@@ -33,7 +31,7 @@ function TodoList() {
 
     return (
         <>
-            <div className="list-wrap">
+            <div className={todoListStyle.listWrap}>
                 <TodoSection
                     id="active-toggle"
                     text="Active"

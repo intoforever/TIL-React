@@ -1,8 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { useSetRecoilState } from 'recoil';
 import { todoListState } from '../recoil/atoms';
-
-import 'styles/components/TodoForm.css'
+import todoFormStyle from 'styles/components/todo-form.module.css'
 
 function TodoForm() {
     const setTodoList = useSetRecoilState(todoListState);
@@ -32,11 +31,11 @@ function TodoForm() {
 
     return (
         <>
-            <div className={`form-area p-fixed ${isFormOpen ? "d-flex" : "d-none"}`}>
+            <div className={`p-fixed ${todoFormStyle.formArea} ${isFormOpen ? "d-flex" : "d-none"}`}>
                 <form className="d-flex" id="todo-form" onSubmit={(e) => handleSubmit(e)}>
-                    <label className="form-content">
+                    <label className={todoFormStyle.formContent}>
                         <input
-                            className="form-text scrollbar"
+                            className={`${todoFormStyle.formText} ${todoFormStyle.scrollbar}`}
                             type="text"
                             value={inputValue}
                             ref={formInputRef}
@@ -46,14 +45,14 @@ function TodoForm() {
                         />
                     </label>
                 </form>
-                <div className="form-btn-wrap d-flex d-flex-align-center">
-                    <button className="btn confirm-btn" form="todo-form">입력</button>
-                    <button className="btn cancel-btn" onClick={() => initStatus()}>취소</button>
+                <div className={`d-flex d-flex-align-center ${todoFormStyle.formBtnWrap}`}>
+                    <button className={`${todoFormStyle.btn} ${todoFormStyle.confirmBtn}`} form="todo-form">입력</button>
+                    <button className={`${todoFormStyle.btn} ${todoFormStyle.cancelBtn}`} onClick={() => initStatus()}>취소</button>
                 </div>
             </div>
-            <div className={`btn-area p-fixed  ${isFormOpen ? "d-none" : "d-flex"}`}>
+            <div className={`p-fixed ${todoFormStyle.btnArea} ${isFormOpen ? "d-none" : "d-flex"}`}>
                 <button
-                    className="add-btn"
+                    className={todoFormStyle.addBtn}
                     onClick={() => setIsFormOpen(!isFormOpen)}
                 >
                 </button>

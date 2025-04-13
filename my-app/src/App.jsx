@@ -1,18 +1,15 @@
-import 'styles/App.css'
-
-import TodoList from 'components/TodoList'
-import TodoForm from 'components/TodoForm'
-import TodoFilter from 'components/TodoFilter'
+import appStyle from 'styles/app.module.css';
+import TodoList from 'components/TodoList';
+import TodoForm from 'components/TodoForm';
 
 function App() {
   return (
     <>
       <h1>TO-DO LIST</h1>
-      <div className="line"></div>
+      <div className={appStyle.line}></div>
       <div>
         <TodoList />
         <TodoForm />
-        <TodoFilter />
       </div>
     </>
   )

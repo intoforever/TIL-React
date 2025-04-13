@@ -59,6 +59,10 @@ textarea {
     outline: none;
 }
 
+button {
+    border: none
+}
+
 
 /* scrollbar */
 /* Chrome, Whale, Edge */

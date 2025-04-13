@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useRecoilState } from 'recoil';
 import { todoListState } from '../recoil/atoms';
-
-import 'styles/components/TodoItem.css'
+import todoItemStyle from 'styles/components/todo-item.module.css';
 
 function TodoItem({ todo }) {
     const [todoList, setTodoList] = useRecoilState(todoListState);
@@ -22,13 +21,8 @@ function TodoItem({ todo }) {
     
     function handleDelClick(e, todo) {
         e.stopPropagation();
-        for (let i = 0; i < todoList.length; i++) {
-            let list = todoList[i];
-            if (list.id === todo.id) {
-                let updatedTodoList = todoList.slice(0, i).concat(todoList.slice(i+1, todoList.length));
-                setTodoList(updatedTodoList);
-            }
-        }
+        let updatedTodoList = todoList.filter(list => list.id !== todo.id);
+        setTodoList(updatedTodoList);
     }
 
     // input 값이 달라지면 바로 todoList 업데이트
@@ -41,15 +35,15 @@ function TodoItem({ todo }) {
 
     return (
         <>
-            <div className="item d-flex" onClick={(e) => handleItemClick(e, todo)}>
-                <div className="checkbox-area d-flex d-flex-align-center">
-                    <label className="checkbox-item btn">
+            <div className={`d-flex ${todoItemStyle.item}`} onClick={(e) => handleItemClick(e, todo)}>
+                <div className={`d-flex d-flex-align-center ${todoItemStyle.checkboxArea}`}>
+                    <label className={`${todoItemStyle.btn} ${todoItemStyle.checkboxItem}`}>
                         <input type="checkbox" defaultChecked={todo.completed} />
                     </label>
                 </div>
-                <div className="content-area">
+                <div className={todoItemStyle.contentArea}>
                     <input
-                        className={`input-content ${todo.completed ? 'completed-content' : ''}`}
+                        className={`${todoItemStyle.inputContent} ${todo.completed ? todoItemStyle.completedContent : ''}`}
                         type="text"
                         value={inputValue}
                         maxLength="30"
@@ -58,9 +52,9 @@ function TodoItem({ todo }) {
                         onChange={(e) => setInputValue(e.target.value)}
                     />
                 </div>
-                <div className="btn-area d-flex d-flex-align-center">
+                <div className={`d-flex d-flex-align-center ${todoItemStyle.btnArea}`}>
                     {/* <button className={`btn edit-btn ${isEditting ? 'd-none' : ''}`} onClick={(e) => handleEditClick(e, todo)}></button> */}
-                    <button className="btn delete-btn" onClick={(e) => handleDelClick(e, todo)}></button>
+                    <button className={`${todoItemStyle.btn} ${todoItemStyle.deleteBtn}`} onClick={(e) => handleDelClick(e, todo)}></button>
                 </div>
             </div>
         </>

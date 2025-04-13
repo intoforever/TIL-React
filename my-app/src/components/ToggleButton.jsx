@@ -1,8 +1,7 @@
-import { memo, useEffect, useRef } from 'react'
-import { useRecoilValue } from 'recoil'
-import { activeOnState, completeOnState } from '../recoil/atoms'
-
-import 'styles/components/ToggleButton.css'
+import { memo, useEffect, useRef } from 'react';
+import { useRecoilValue } from 'recoil';
+import { activeOnState, completeOnState } from '../recoil/atoms';
+import toggleButtonStyle from 'styles/components/toggle-button.module.css';
 
 function ToggleButton({ id, text, type, handleToggleClick }) {
     const inputRef = useRef(null);
@@ -24,10 +23,10 @@ function ToggleButton({ id, text, type, handleToggleClick }) {
 
     return (
         <>
-            <div className="toggle-area">
+            <div className={toggleButtonStyle.toggleArea}>
                 <input
                     id={id}
-                    className="toggle-switch"
+                    className={toggleButtonStyle.toggleSwitch}
                     type="checkbox"
                     ref={inputRef}
                     onClick={() => handleToggleClick(type)}
