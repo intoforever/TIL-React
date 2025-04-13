@@ -6,14 +6,12 @@
  * 5. 할 일을 삭제할 수 있다.
  */
 
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import { RecoilRoot } from 'recoil'
-
-import 'styles/index.css'
-import 'styles/style.css'
-
-import App from './App.jsx'
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import { RecoilRoot } from 'recoil';
+import 'styles/index.css';
+import 'styles/style.css';
+import App from './App.jsx';
 
 createRoot(document.getElementById('root')).render(
   <RecoilRoot>

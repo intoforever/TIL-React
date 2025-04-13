@@ -1,5 +1,5 @@
-import TodoItem from 'components/TodoItem'
-import ToggleButton from 'components/ToggleButton'
+import TodoItem from 'components/TodoItem';
+import ToggleButton from 'components/ToggleButton';
 
 function ToggleSection({ id, text, type, handleToggleClick, isOn, todoList }) {
     return (
